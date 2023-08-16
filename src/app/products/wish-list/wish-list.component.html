@@ -1,0 +1,51 @@
+<!-- Empty WishList -->
+
+<div *ngIf="wishListItems.length==0" class="container mt-5">
+    <div class="row">
+        <div class="col text-center mt-5">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png"
+                alt="empty WishList">
+            <!-- <h4>Your WishList is empty</h4> -->
+            <br>
+            <a routerLink="" class="btn btn-success">Add More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Whish List section with items -->
+
+<section *ngIf="wishListItems.length!=0"  class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let item of wishListItems" class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img style="height: 250px;" class="card-img-top" [src]="item.image" alt="___" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{item.title}}</h5>
+                            <!-- Product price-->
+                            {{item.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex  justify-content-center">
+
+                        <!-- View Product -->
+                        <button  (click)="removeItem(item.id)" class="btn btn-outline-warning mt-auto me-2">
+                            <i class="fa-solid fa-heart-circle-minus fa-fade" style="color: #ea0634;"></i>
+                        </button>
+
+                        <!--Add to Cart Button -->
+                        <button (click)="addtoCart(item)" class="btn btn-success mt-auto">
+                            <i class="fa-solid fa-cart-shopping fa-shake"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

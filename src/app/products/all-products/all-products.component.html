@@ -1,0 +1,49 @@
+<header class="">
+    <!-- <img height="500px" width="100%"
+        src="https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?cs=srgb&dl=pexels-karolina-grabowska-5632371.jpg&fm=jpg"
+        alt=""> -->
+    <!-- <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop in style</h1>
+            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+        </div>
+    </div> -->
+</header>
+
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let product of allProducts | filter:searchKey:'title'" class="col mb-5">
+                <div class="card h-100 p-2">
+                    <!-- Product image-->
+                    <img style=" height: 250px;" class="card-img-top " [src]="product.image" alt="___" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{product.title.slice(0,20)}}</h5>
+                            <!-- Product price-->
+                            ${{product.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex  justify-content-center">
+
+                        <!-- View Product -->
+                        <a class="btn btn-outline-primary mt-auto me-2"
+                            routerLink="/products/view-product/{{product.id}}">
+                            <i class="fa-solid fa-eye fa-fade"></i>
+                        </a>
+
+                        <!--Add to Cart Button -->
+                        <button (click)="addtoCart(product)" class="btn btn-success mt-auto">
+                            <i class="fa-solid fa-cart-shopping fa-shake"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
